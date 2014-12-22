@@ -24,4 +24,5 @@ group :development, :test do
   gem 'capybara-rails'
   gem 'capybara'
   gem 'launchy'
+  gem 'devise'
 end
