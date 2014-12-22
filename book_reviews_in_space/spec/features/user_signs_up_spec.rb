@@ -16,38 +16,48 @@ require 'rails_helper'
 ) do
 
   it "provides valid information" do
+    valid = FactoryGirl.create(:user)
 
     visit '/'
 
     click_link("Sign up", match: :first)
-    fill_in "Name", with: "Diego De Souza"
-    fill_in "Email", with: "example@example.com"
-    fill_in "Password", with: "password"
-    fill_in "Password confirmation", with: "password"
+    fill_in "Name", with: valid.name
+    fill_in "Email", with: valid.email
+    fill_in "Password", with: valid.password
+    fill_in "Password confirmation", with: valid.password
     click_button "Sign up"
 
     expect(page).to have_content "Welcome! You have signed up successfully."
   end
 
-  it "email has already been registered" do
+  # it "provides invalid information" do
+  #
+  #   visit '/'
+  #
+  #   click_link("Sign up", match: :first)
+  #   fill_in "Name", with "Diego De Souza"
+  #   fill_in "Email"
+  # end
 
-    existing_user = User.create(
-      name: "Diego De Souza",
-      email: "example@example.com",
-      password: "password"
-    )
-
-    visit '/'
-
-    click_link("Sign up", match: :first)
-    fill_in "Name", with: existing_user.name
-    fill_in "Email", with: existing_user.email
-    fill_in "Password", with: existing_user.password
-    fill_in "Password confirmation", with: existing_user.password
-    click_button "Sign up"
-    save_and_open_page
-
-    expect(page).to have_content "Email has already been taken"
-
-  end
+  # it "email has already been registered" do
+  #
+  #   existing_user = User.create(
+  #     name: "Diego De Souza",
+  #     email: "example@example.com",
+  #     password: "password"
+  #   )
+  #
+  #   visit '/'
+  #
+  #   click_link("Sign up", match: :first)
+  #   fill_in "Name", with: existing_user.name
+  #   fill_in "Email", with: existing_user.email
+  #   fill_in "Password", with: existing_user.password
+  #   fill_in "Password confirmation", with: existing_user.password
+  #   click_button "Sign up"
+  #   save_and_open_page
+  #
+  #   expect(page).to have_content "Email has already been taken"
+  #
+  # end
 end
