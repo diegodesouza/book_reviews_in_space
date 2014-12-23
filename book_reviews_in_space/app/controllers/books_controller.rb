@@ -1,36 +1,29 @@
 class BooksController < ApplicationController
   def index
-
+    @books = Book.order('created_at DESC')
   end
 
   def show
-    @user = User.find(params[:id])
+    @book = Book.find(params[:id])
   end
 
   def new
-    @user = User.new
+    @book = Book.new
   end
 
   def create
-    @user = User.new(user_params)
-    if @user.save
-      log_in @user
-      flash[:success] = "Welcome to the books review!"
-      redirect_to @user
+    @book = Book.new(book_params)
+    if @book.save
+      flash[:notice] = "Your have successfully added a new book."
+      redirect_to @book
     else
       render 'new'
     end
   end
 
-  def destroy
-    destroy_user_session_path
-    redirect_to root_path
-  end
-
   private
 
-  def user_params
-    params.require(:user).permit(:name, :email, :password,
-    :password_confirmation)
+  def book_params
+    params.require(:book).permit(:title, :description, :url)
   end
 end

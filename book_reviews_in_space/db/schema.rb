@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20141222035748) do
   create_table "books", force: true do |t|
     t.string   "title",       null: false
     t.text     "description", null: false
+    t.string   "url",         null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
