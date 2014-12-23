@@ -2,28 +2,28 @@ require 'rails_helper'
 
 feature "User deletes account", %q(
   As an authenticated user
-  I want to see my profile page
-  So that I can change information on it
+  I can change my role on my profile page to astronaut
+  So I can post books and review them as an astronaut
 
-  - [] I can update my profile
-  - [] When clicking delete my account i should see a message "are you sure?"
-  - [] if i click delete my account it should delete it from my database
+  - [] I can update my role
+
   ) do
 
-  it "user deletes his account" do
+  it "user updates his role" do
     user = create :user
 
     visit root_path
 
     click_link("Sign up", match: :first)
     fill_in "Name", with: user.name
-    fill_in "Email", with: "some@email.com"
+    fill_in "Role", with: "something"
+    fill_in "Email", with: user.email
     fill_in "Password", with: "password"
     fill_in "Password confirmation", with: "password"
     click_button "Sign up"
 
     click_on "Edit profile"
-    fill_in "Email", with: "cool@email.com"
+    fill_in "Role", with: "Astronaut"
     fill_in "Current password", with: "password"
     click_on "Update"
 

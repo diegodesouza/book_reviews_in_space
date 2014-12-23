@@ -10,13 +10,9 @@ require 'rails_helper'
   - [X] if i click delete my account it should delete it from my database
   ) do
 
-  it "user deletes his account" do
-    # user = create :user
-    # email = generate :email
+  it "user updates his account" do
 
     visit root_path
-
-    visit '/'
 
     click_link("Sign up", match: :first)
     fill_in "Name", with: "Diego"
