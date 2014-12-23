@@ -1,3 +1,5 @@
+<%= @book.errors.full_messages.first if @book.errors.any? %>
+
 <%= form_for @book do |f| %>
 <div>
   <%= f.label :title %>
