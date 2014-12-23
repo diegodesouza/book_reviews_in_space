@@ -19,5 +19,5 @@ So that my information is no longer retained by the app
   click_on "Edit profile"
   click_on "Cancel my account"
 
-  expect(page).to have_content "<some message here>"
+  expect(page).to have_content "Bye! Your account has been successfully cancelled. We hope to see you again soon."
 end
