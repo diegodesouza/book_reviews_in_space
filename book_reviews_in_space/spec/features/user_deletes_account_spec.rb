@@ -5,26 +5,32 @@ require 'rails_helper'
   I want to delete my account
   So that my information is no longer retained by the app
 
-  - [] In my home page I can navigate to edit profile and chose to delete my account
+  - [X] In my home page I can navigate to edit profile and chose to delete my account
   - [] When clicking delete my account i should see a message "are you sure?"
-  - [] if i click delete my account it should delete it from my database
+  - [X] if i click delete my account it should delete it from my database
   ) do
 
-  scenario "user deletes his account" do
-    user = create(:user)
-    current_user#as logged in
+  it "user deletes his account" do
+    # user = create :user
+    # email = generate :email
 
     visit root_path
 
+    visit '/'
+
+    click_link("Sign up", match: :first)
+    fill_in "Name", with: "Diego"
+    fill_in "Email", with: "one@example.com"
+    fill_in "Password", with: "password"
+    fill_in "Password confirmation", with: "password"
+    click_button "Sign up"
+
     click_on "Edit profile"
     click_on "Cancel my account"
+save_and_open_page
 
-    redirect_to root_path
     expect(page).to have_content "Bye! Your account has been successfully cancelled. We hope to see you again soon."
 
-  scenario "user sees a message after clicking delete my account"
-
-
-
+  #scenario "user sees a message after clicking delete my account"
   end
 end
