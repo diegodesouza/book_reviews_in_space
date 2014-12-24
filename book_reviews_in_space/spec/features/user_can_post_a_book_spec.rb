@@ -1,14 +1,16 @@
 require 'rails_helper'
 
 feature "User deletes account", %q(
-As an unauthenticated user
-I want to sign in
-So that I can post books and review them
+  As a user
+  I want to post a link to a book
+  So I can share what I'm reading with others
 
-- [X] I can sign in
-- [X] I can post a book
-- [] I can review my books
-- [X] I am presented with errors if i fill out the form incorrectly
+  Acceptance Criteria
+
+  - [X] I must provide a title that is at least 1 character long
+  - [X] I must provide a description that is at least 10 characters long
+  - [X] I must provide a valid URL to the book
+  - [X] I am presented with errors if i fill out the form incorrectly
 ) do
 
   it "signs in and post a book for review" do
@@ -35,7 +37,7 @@ So that I can post books and review them
     click_on "Add new book"
 
     fill_in "Title", with: ""
-    fill_in "Description", with: "Try this"
+    fill_in "Description", with: "This description is at least 10 characters long for sure"
     fill_in "URL", with: "https//new.com"
 
     click_on "Add book"
@@ -56,7 +58,6 @@ So that I can post books and review them
 
     click_on "Add book"
 
-
     expect(page).to have_content "Description can't be blank"
   end
 
@@ -68,7 +69,7 @@ So that I can post books and review them
     click_on "Add new book"
 
     fill_in "Title", with: "Some title"
-    fill_in "Description", with: "Try this"
+    fill_in "Description", with: "This description is at least 10 characters long for sure"
     fill_in "URL", with: ""
 
     click_on "Add book"
@@ -84,7 +85,7 @@ So that I can post books and review them
     click_on "Add new book"
 
     fill_in "Title", with: "Some title"
-    fill_in "Description", with: "Try this"
+    fill_in "Description", with: "This description is at least 10 characters long for sure"
     fill_in "URL", with: "www.new.com"
 
     click_on "Add book"

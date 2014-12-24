@@ -1,9 +1,14 @@
 require 'rails_helper'
 
 feature "User deletes account", %q(
+    As an unauthenticated user
+    I want to sign in
+    So that I can post books and review them
+
     As an authenticated user
     I want to sign out
     So that no one else can post books or reviews on my behalf
+    
 
     - [X] user can successfully log in
     - [X] user can successfully log out
