@@ -28,6 +28,7 @@ feature "View a Book's Details", %q(
     expect(page).to have_content "Role: member"
   end
 end
+<<<<<<< HEAD
 
 
 # context "signed in user" do
@@ -46,3 +47,5 @@ end
 #
 #   end
 # end
+=======
+>>>>>>> 4c42ca0b2fcef2d00057bcbabe6bf4ccee1fad05
