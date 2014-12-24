@@ -1,14 +1,13 @@
-<<<<<<< HEAD
+<%= form_for([@book, @book.reviews.build]) do |f| %>
+<div>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+</div>
 
-=======
-<%= form_for @review do |f| %>
-  <div>
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-  </div>
+<div>
+  <%= f.submit "Save" %>
 
-  <div>
-    <%= f.submit "Save" %>
-  </div>
+</div>
 <% end %>
->>>>>>> 4c42ca0b2fcef2d00057bcbabe6bf4ccee1fad05
+
+<%= link_to "Edit", edit_book_review_path(:book_id, :id)  %>

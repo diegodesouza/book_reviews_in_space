@@ -4,4 +4,10 @@
   URL: <%= @book.url %><br>
 </div>
 
+
+<div>
+<% @book.reviews.each do |review| %>
+Review: <%= review.description %>
+  <% end %>
+</div>
 <%= render "reviewform" %>
