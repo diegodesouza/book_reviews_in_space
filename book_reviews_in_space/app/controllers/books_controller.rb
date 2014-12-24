@@ -13,6 +13,8 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
+    @book.user_id = current_user.id
+    # binding.pry
     if @book.save
       flash[:notice] = "Your have successfully added a new book."
       redirect_to @book
