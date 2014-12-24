@@ -19,7 +19,7 @@ require 'rails_helper'
     valid = create :user
     email = generate :email
 
-    visit '/'
+    visit root_path
 
     click_link("Sign up", match: :first)
     fill_in "Name", with: valid.name
@@ -31,25 +31,24 @@ require 'rails_helper'
     expect(page).to have_content "Welcome! You have signed up successfully."
   end
 
-########################################################################
-#this doesnt pass.
-########################################################################
-#   it "provides invalid information" do
-#     user = create :user
-#     email = generate :email
-#     password = generate :password
-#
-#     visit '/'
-#
-#     click_link("Sign up", match: :first)
-#     fill_in "Name", with: user.name
-#     fill_in "Email", with: user.email
-#     fill_in "Password", with: password
-#     fill_in "Password confirmation", with: password
-# save_and_open_page
-#     expect(page).to have_content "Password confirmation does not match"
-#   end
-########################################################################
+  it "provides invalid password confirmation" do
+    user = create :user
+    email = generate :email
+
+    visit root_path
+
+    click_link("Sign up", match: :first)
+    fill_in "Name", with: user.name
+    fill_in "Role", with: "user"
+    fill_in "Email", with: email
+    fill_in "Password", with: "password1"
+    fill_in "Password confirmation", with: "password"
+    click_button "Sign up"
+    save_and_open_page
+    expect(page).to have_content "Password confirmation does not match!"
+
+  end
+
   it "email has already been registered" do
 
     existing_user = User.create(
@@ -58,7 +57,7 @@ require 'rails_helper'
       password: "password"
     )
 
-    visit '/'
+    visit root_path
 
     click_link("Sign up", match: :first)
     fill_in "Name", with: existing_user.name
@@ -73,8 +72,7 @@ require 'rails_helper'
 
   it "gives me an error for incorrect formatted email" do
 
-    visit '/'
-    #user = create(:user)
+    visit root_path
 
     click_link("Sign up", match: :first)
     fill_in "Name", with: "Diego"

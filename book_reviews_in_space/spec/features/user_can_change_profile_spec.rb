@@ -5,9 +5,9 @@ feature "User deletes account", %q(
   I want to see my profile page
   So that I can change information on it
 
-  - [] I can update my profile
-  - [] When clicking delete my account i should see a message "are you sure?"
-  - [] if i click delete my account it should delete it from my database
+  - [X] I can update my profile
+  - [X] When clicking delete my account i should see a message "are you sure?"
+  - [X] if i click delete my account it should delete it from my database
   ) do
 
   it "user deletes his account" do
@@ -16,10 +16,12 @@ feature "User deletes account", %q(
     visit root_path
 
     click_link("Sign up", match: :first)
+
     fill_in "Name", with: user.name
     fill_in "Email", with: "some@email.com"
     fill_in "Password", with: "password"
     fill_in "Password confirmation", with: "password"
+
     click_button "Sign up"
 
     click_on "Edit profile"
@@ -28,6 +30,5 @@ feature "User deletes account", %q(
     click_on "Update"
 
     expect(page).to have_content "Your account has been updated successfully."
-
   end
 end
