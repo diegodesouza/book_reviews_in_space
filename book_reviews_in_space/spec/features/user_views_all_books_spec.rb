@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "", %q(
+feature "View All Books", %q(
 
   As a user
   I want to view recently posted books
