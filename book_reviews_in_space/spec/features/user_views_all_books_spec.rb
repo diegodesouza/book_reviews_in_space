@@ -15,16 +15,16 @@ feature "", %q(
   - [] I must see if a book was posted by an astronaut or a candidate
 ) do
 
- it "" do
-   user = create :user
+  it "must show home page with some books info" do
+    user = create :user
 
-   sign_in_as(user)
-
-   expect(page).to have_content #title, description, url
-
- end
+    sign_in_as(user)
 
 
-
-
+    expect(page).to have_content "Title: well"
+    expect(page).to have_content "Description: Some description about this book"
+    expect(page).to have_content "URL: http://www.essential.com"
+    save_and_open_page
+    expect(page).to have_content "Role: member"
+  end
 end

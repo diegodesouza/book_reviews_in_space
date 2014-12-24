@@ -10,7 +10,7 @@ require 'rails_helper'
   - [X] There is a link to 'Sign Up' on the homepage.
   - [X] If I fill in my name, email, password, and password confirmation correctly,
     I am greeted with a confirmation message that my account has been created.
-  - [ ] If the password and password confirmation fields do not match, I am given an error message.
+  - [X] If the password and password confirmation fields do not match, I am given an error message.
   - [X] If my email already exists in the database, I am given a message that tells me I have already registered.
   - [X] If my email is not formatted correctly, I am given an error message.
 ) do

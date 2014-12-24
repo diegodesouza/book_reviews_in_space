@@ -6,8 +6,8 @@
 <% @books.each do |book| %><hr>
   Title: <%= book.title %><br>
   Description: <%= book.description %><br>
-  URL: <%= book.url %><br><hr>
-  Role <%= book.user.role %>
+  URL: <%= book.url %><br>
+  Role: <%= book.user.role %><hr>
 <% end %>
 
 </div>

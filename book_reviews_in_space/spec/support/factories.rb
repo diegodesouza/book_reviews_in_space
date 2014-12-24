@@ -12,4 +12,10 @@ FactoryGirl.define do
   sequence :password do |n|
     "{n}password"
   end
+
+  factory :book do
+    title "SomeTitle"
+    description "This is some description"
+    url "http://www.web.com"     
+  end
 end

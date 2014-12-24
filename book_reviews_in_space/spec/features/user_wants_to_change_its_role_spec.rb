@@ -5,7 +5,7 @@ feature "User deletes account", %q(
   I can change my role on my profile page to astronaut
   So I can post books and review them as an astronaut
 
-  - [] I can update my role
+  - [X] I can update my role
 
   ) do
 

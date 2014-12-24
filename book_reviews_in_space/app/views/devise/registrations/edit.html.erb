@@ -10,7 +10,8 @@
 
   <div class="field">
     <%= f.label :role %><br />
-    <%= f.text_field :role, autofocus: true, autocomplete: "on" %>
+    <%= f.select :role, [['Member', 'member'], ['Astronaut', 'astronaut'], ['Candidate', 'candidate']] %>
+
   </div>
 
   <div class="field">
