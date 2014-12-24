@@ -28,3 +28,21 @@ feature "View a Book's Details", %q(
     expect(page).to have_content "Role: member"
   end
 end
+
+
+# context "signed in user" do
+#   before(:each) do
+#     user = FactoryGirl.create(:user)
+#     sign_in user
+#   end
+#
+#   scenario "interact with website" do
+#
+#   end
+# end
+#
+# context "unauthenticated user" do
+#   scenario "interact with website" do
+#
+#   end
+# end

@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+
   def index
     @books = Book.order('created_at DESC')
   end
@@ -26,6 +27,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :description, :url, :role)
+    params.require(:book).permit(:title, :description, :url)
   end
+  
 end
