@@ -4,9 +4,9 @@
 <div>
 
 <% @books.each do |book| %><hr>
-  <%= book.title %><br>
-  <%= book.description %><br>
-  <%= book.url %><br><hr>
+  Title: <%= book.title %><br>
+  Description: <%= book.description %><br>
+  URL: <%= book.url %><br><hr>
 <% end %>
 
 </div>
