@@ -4,13 +4,13 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    @review = Review.find(params[:id])
+    @review = Review.find(params[:book_id])
   end
 
   def create
     @book = Book.find(params[:book_id])
     @review = @book.reviews.new(review_params)
-    if @review.save!
+    if @review.save
       redirect_to book_path(@book)
     else
       flash[:warning] = @review.errors.full_messages.join('. ')
@@ -20,6 +20,7 @@ class ReviewsController < ApplicationController
 
   def edit
     @review = Review.find(params[:id])
+    @book = Book.find(params[:book_id])
   end
 
   def update
@@ -32,6 +33,10 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def destroy
+    Review.destroy(params[:id])
+    redirect_to book_path
+  end
   private
 
   def review_params

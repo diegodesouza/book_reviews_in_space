@@ -6,8 +6,12 @@
 
 
 <div>
-<% @book.reviews.each do |review| %>
-Review: <%= review.description %>
-  <% end %>
+  <% @book.reviews.each do |review| %>
+  Review: <%= review.description %>
+    <% end %>
 </div>
+
 <%= render "reviewform" %>
+
+<%= button_to 'Delete Review', book_path(:review_id), method: :delete,
+data: { confirm: 'Are you sure?' } %> <hr>

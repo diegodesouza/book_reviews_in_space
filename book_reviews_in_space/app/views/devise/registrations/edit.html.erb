@@ -10,7 +10,7 @@
 
   <div class="field">
     <%= f.label :role %><br />
-    <%= f.select :role, [['Member', 'member'], ['Astronaut', 'astronaut'], ['Candidate', 'candidate']] %>  
+    <%= f.select(:role, User::USER_OPTIONS) %>
   </div>
 
   <div class="field">

@@ -21,8 +21,13 @@ class BooksController < ApplicationController
       flash[:notice] = "Your have successfully added a new book."
       redirect_to @book
     else
-      render 'new'
+      render action: 'new'
     end
+  end
+
+  def destroy
+    Book.destroy(params[:id])
+    redirect_to @book
   end
 
   private

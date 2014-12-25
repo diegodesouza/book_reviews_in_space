@@ -14,13 +14,5 @@ class User < ActiveRecord::Base
   validates :password,
             :presence => { :on => :create },
             :length   => { :minimum => 6, :allow_nil => true }
-  OPTIONS = [
-    {:role => 'memeber'},
-    {:role => 'astronaut'},
-    {:role => 'candidate'}
-  ]
-
-  def self.options
-    OPTIONS.map { |option| option[:role] }
-  end
+            USER_OPTIONS = ["member", "astronaut", "candidate"]
 end
