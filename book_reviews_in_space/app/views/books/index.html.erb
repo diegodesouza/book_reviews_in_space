@@ -1,16 +1,16 @@
-<h1>Books</h1>
-
 <%= link_to "Add new book", new_book_path %>
-<div>
 
-<% @books.each do |book| %><hr>
-  Title: <%= link_to "#{book.title}", book_path(book)  %></a><br>
-  Description: <%= book.description %><br>
-  URL: <%= book.url %><br>
-  Role: <%= book.user.role %><br>
+<div class="row">
+  <div class="col-sm-8 col-md-12">
+    <p><% @books.each do |book| %></h3>
+         Title: <%= link_to "#{book.title}", book_path(book)  %></a><br>
+         Description: <%= book.description %><br>
+         URL: <%= book.url %><br>
+         Role: <%= book.user.role %><br></p>
 
-  <%= link_to 'Delete Question', book, method: :delete,
-  data: { confirm: 'Are you sure?' } %> <hr>
-<% end %>
-
+         <p><%= link_to "Edit Book", edit_book_path(book), class:"btn btn-primary" %>
+         <%= link_to 'Delete Book', book, method: :delete,
+         data: { confirm: 'Are you sure?' }, class:"btn btn-default" %> </p>
+       <% end %>
+  </div>
 </div>

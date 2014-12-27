@@ -6,7 +6,6 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    @review = Book.find(params[:id])
   end
 
   def new
@@ -33,9 +32,9 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
 
     if @book.update(book_params)
-      redirect_to @book
+      redirect_to book_path
     else
-      @book.edit
+      render action: "edit"
     end
   end
 

@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+
   <title>BookReviewsInSpace</title>
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application"%>
@@ -29,7 +34,36 @@
     <p class="alert alert-danger"><%= alert %></p>
   <% end %>
    <!--=======================================-->
-<%= yield %>
+
+   <!-- anything in this container will get shifted when page is resized -->
+   <div class="jumbotron">
+     <h1>Goodreads in Space</h1>
+   </div>
+
+   <div class="container">
+     <div class="row">
+
+
+       <div class="col-md-12" id="middle">
+
+
+         <div class="media">
+           <div class="media-body">
+             <p class="media-heading"><%= yield %></p>
+           </div>
+         </div>
+
+         <hr/>  <!-- separator line -->
+
+       </div>
+
+       <div class="col-md-4" id="right-bar"></div>
+     </div>
+   </div>
+
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
 </body>
 </html>

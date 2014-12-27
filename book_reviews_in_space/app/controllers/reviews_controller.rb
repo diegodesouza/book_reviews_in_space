@@ -26,8 +26,8 @@ class ReviewsController < ApplicationController
   def update
     @review = Review.find(params[:id])
 
-    if @review.update(review_params)
-      redirect_to book_path
+    if @review.update_attributes(review_params)
+      redirect_to book_path(params[:book_id]), :notice => "Successfully Updated"
     else
       render "edit"
     end
