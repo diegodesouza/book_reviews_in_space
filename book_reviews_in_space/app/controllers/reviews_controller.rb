@@ -19,24 +19,26 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    @review = Review.find(params[:id])
     @book = Book.find(params[:book_id])
+    @review = Review.find(params[:id])
   end
 
   def update
     @review = Review.find(params[:id])
 
     if @review.update(review_params)
-      redirect_to @review
+      redirect_to book_path
     else
-      @review.edit
+      render "edit"
     end
   end
 
   def destroy
-    Review.destroy(params[:id])
+    @review = Review.find(params[:id])
+    @review.destroy
     redirect_to book_path
   end
+
   private
 
   def review_params

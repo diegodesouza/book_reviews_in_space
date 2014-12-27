@@ -1,17 +1,16 @@
+<!-- show each book's detail -->
 <div>
   Title: <%= @book.title %><br>
   Description: <%= @book.description %><br>
   URL: <%= @book.url %><br>
-</div>
+</div><hr>
 
-
+<!-- show each review -->
 <div>
   <% @book.reviews.each do |review| %>
-  Review: <%= review.description %>
-    <% end %>
+    Review: <%= review.description %><hr>
+  <% end %>
 </div>
 
-<%= render "reviewform" %>
 
-<%= button_to 'Delete Review', book_path(:review_id), method: :delete,
-data: { confirm: 'Are you sure?' } %> <hr>
+<%= render "reviews/reviewform" %>

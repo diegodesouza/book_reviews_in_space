@@ -1,0 +1,10 @@
+<%= form_for :review, :url => { :action => 'update', :id => @review.id}, method: :patch do |f| %>
+<p>
+  <%= f.label :description %><br>
+  <%= f.text_area :description %>
+</p>
+
+<p>
+  <%= f.submit %>
+</p>
+<% end %>

@@ -1,0 +1,20 @@
+<%= form_for :post, url: book_path(:book_id), method: :update do |f| %>
+
+<p>
+  <%= f.label :title %><br>
+  <%= f.text_area :title %>
+</p>
+
+<p>
+  <%= f.label :description %><br>
+  <%= f.text_area :description %>
+</p>
+
+<p>
+  <%= f.label :url %><br>
+  <%= f.url_field :url %>
+</p>
+<p>
+  <%= f.submit %>
+</p>
+<% end %>

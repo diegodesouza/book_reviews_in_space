@@ -7,9 +7,10 @@
   Title: <%= link_to "#{book.title}", book_path(book)  %></a><br>
   Description: <%= book.description %><br>
   URL: <%= book.url %><br>
-  Role: <%= book.user.role %>
-<%= button_to 'Delete Question', book_path(:books_id), method: :delete,
-data: { confirm: 'Are you sure?' } %> <hr>
+  Role: <%= book.user.role %><br>
+
+  <%= link_to 'Delete Question', book, method: :delete,
+  data: { confirm: 'Are you sure?' } %> <hr>
 <% end %>
 
 </div>

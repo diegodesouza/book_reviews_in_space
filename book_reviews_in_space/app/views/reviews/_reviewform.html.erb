@@ -1,0 +1,12 @@
+<%= form_for([@book, @book.reviews.new]) do |f| %>
+  <div>
+    <%= f.label :description, "Description: "%>
+    <%= f.text_area :description %>
+  </div>
+
+  <div>
+    <%= f.submit "Save" %>
+    <%= link_to "Edit Review", edit_book_review_path(@book, @review.id) %>
+  </div>
+
+<% end %>
