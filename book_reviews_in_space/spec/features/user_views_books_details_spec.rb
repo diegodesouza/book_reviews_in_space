@@ -16,36 +16,35 @@ feature "View a Book's Details", %q(
 
   it "must be able to click book to see its details" do
     user = create :user
+    email = generate :email
+    book = create :book
+    password = generate :password
 
-    sign_in_as(user)
+    visit root_path
+
+    click_link("Sign up", match: :first)
+
+    fill_in "Name", with: user.name
+    fill_in "Email", with: email
+    fill_in "Password", with: password
+    fill_in "Password confirmation", with: password
+
+    click_button "Sign up"
+
+    click_on "Add new book"
+
+    fill_in "title", with: book.title
+    fill_in "description", with: book.description
+    fill_in "url", with: book.url
+
+    click_on "Add book"
+
+    save_and_open_page
 
     click_on "well"
 
-    expect(page).to have_content "Title: well"
-    expect(page).to have_content "Description: Some description about this book"
+    expect(page).to have_content "Title: SomeTitle"
+    expect(page).to have_content "Description: This is some description of the book, so it should work"
     expect(page).to have_content "URL: http://www.essential.com"
-    save_and_open_page
-    expect(page).to have_content "Role: member"
   end
 end
-<<<<<<< HEAD
-
-
-# context "signed in user" do
-#   before(:each) do
-#     user = FactoryGirl.create(:user)
-#     sign_in user
-#   end
-#
-#   scenario "interact with website" do
-#
-#   end
-# end
-#
-# context "unauthenticated user" do
-#   scenario "interact with website" do
-#
-#   end
-# end
-=======
->>>>>>> 4c42ca0b2fcef2d00057bcbabe6bf4ccee1fad05

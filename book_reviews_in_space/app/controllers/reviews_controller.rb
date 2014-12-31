@@ -3,9 +3,9 @@ class ReviewsController < ApplicationController
     @reviews = Review.order('reviews.created_at DESC')
   end
 
-  def show
-    @review = Review.find(params[:book_id])
-  end
+  # def show
+  #   @review = Review.find(params[:book_id])
+  # end
 
   def create
     @book = Book.find(params[:book_id])
@@ -24,19 +24,22 @@ class ReviewsController < ApplicationController
   end
 
   def update
+    @book = current_user.reviews.find(params[:id])
     @review = Review.find(params[:id])
 
     if @review.update_attributes(review_params)
-      redirect_to book_path(params[:book_id]), :notice => "Successfully Updated"
+      redirect_to book_path(params[:book_id]),
+      :notice => "Successfully Updated"
     else
-      render "edit"
+      render :edit
     end
   end
 
   def destroy
+    @book = Book.find(params[:book_id])
     @review = Review.find(params[:id])
     @review.destroy
-    redirect_to book_path
+    redirect_to book_path(@book)
   end
 
   private

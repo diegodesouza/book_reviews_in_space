@@ -7,6 +7,7 @@ FactoryGirl.define do
     name "Diego De Souza"
     email
     password
+    role "member"
   end
 
   sequence :password do |n|
@@ -15,7 +16,7 @@ FactoryGirl.define do
 
   factory :book do
     title "SomeTitle"
-    description "This is some description"
-    url "http://www.web.com"     
+    description "This is some description of the book, so it should work"
+    url "http://www.essential.com"
   end
 end
