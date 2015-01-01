@@ -1,22 +1,22 @@
 <%= @book.errors.full_messages.first if @book.errors.any? %>
 
-<%= form_for @book do |f| %>
-<div>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-</div>
+  <%= form_for @book do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
 
-<div>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-</div>
+  <div>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
 
-<div>
-  <%= f.label :url, "URL" %>
-  <%= f.url_field :url %>
-</div>
+  <div>
+    <%= f.label :url, "URL" %>
+    <%= f.url_field :url %>
+  </div>
 
-<div>
-  <%= f.submit "Add book" %>
-</div>
+  <div>
+    <%= f.submit "Add book" %>
+  </div>
 <% end %>

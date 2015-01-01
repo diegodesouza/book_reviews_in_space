@@ -27,6 +27,10 @@ class BooksController < ApplicationController
 
   def edit
     @book = Book.find(params[:id])
+    if !correct_user?
+      flash[:alert] = "You don't have permission to do that."
+      redirect_to root_path
+    end
   end
 
   def update
@@ -41,11 +45,20 @@ class BooksController < ApplicationController
 
   def destroy
     @book = Book.find(params[:id])
+    if !correct_user?
+      flash[:alert] = "You don't have permission to do that."
+      redirect_to :action => "index" and return
+    end
     @book.destroy
     redirect_to :action => "index"
   end
 
   private
+
+  def correct_user?
+    @book = Book.find(params[:id])
+    current_user == @book.user
+  end
 
   def book_params
     params.require(:book).permit(:title, :description, :url)
