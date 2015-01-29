@@ -15,8 +15,10 @@
   <% @book.reviews.each do |review| %>
     Role: <%= review.book.user.role %><br>
     Review: <%= review.description %><br>
-    <%= link_to "Edit", edit_book_review_path(@book, review), class:"btn btn-default" %>
-    <%= link_to "Delete Review", book_review_path(@book, review), method: :delete, class:"btn btn-default" %>
+    <%= if current_user.id == @user.id %>
+      <%= link_to "Edit", edit_book_review_path(@book, review), class:"btn btn-default" %>
+      <%= link_to "Delete Review", book_review_path(@book, review), method: :delete, class:"btn btn-default" %>
+    <% end %>
   <% end %><hr>
 </div>
 

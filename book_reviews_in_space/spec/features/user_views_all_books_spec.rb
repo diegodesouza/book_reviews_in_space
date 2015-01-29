@@ -24,7 +24,6 @@ feature "View All Books", %q(
     expect(page).to have_content "Title: well"
     expect(page).to have_content "Description: Some description about this book"
     expect(page).to have_content "URL: http://www.essential.com"
-    save_and_open_page
     expect(page).to have_content "Role: member"
   end
 end
